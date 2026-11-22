@@ -1,0 +1,9 @@
+# Left out of the WordPress.org copy (WordPress.org updates the plugin itself).
+/.git
+/.github
+/.gitattributes
+/.gitignore
+/.distignore
+/lib
+/includes/github-updater.php
+/README.md

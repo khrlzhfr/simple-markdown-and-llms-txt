@@ -1,0 +1,46 @@
+name: Release
+
+# Publish a release in either of two ways:
+# - push a tag like v1.0.1 (matching the Version in the plugin header), or
+# - create a release with that tag on GitHub's website.
+# Either way this builds simple-markdown-and-llms-txt.zip and attaches it.
+on:
+  push:
+    tags: ['v*']
+  release:
+    types: [published]
+
+concurrency:
+  group: release-${{ github.ref_name }}
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the tag matches the plugin version
+        run: |
+          version=$(grep -m1 -E '^\s*\*\s*Version:' simple-markdown-and-llms-txt.php | awk '{print $NF}')
+          if [ "v${version}" != "${GITHUB_REF_NAME}" ]; then
+            echo "Plugin header says ${version}, but the tag is ${GITHUB_REF_NAME}." >&2
+            exit 1
+          fi
+
+      - name: Build the zip
+        run: |
+          mkdir -p dist
+          git archive --format=zip --prefix=simple-markdown-and-llms-txt/ -o dist/simple-markdown-and-llms-txt.zip HEAD
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
+            gh release upload "${GITHUB_REF_NAME}" dist/simple-markdown-and-llms-txt.zip --clobber
+          else
+            gh release create "${GITHUB_REF_NAME}" dist/simple-markdown-and-llms-txt.zip --title "${GITHUB_REF_NAME}" --generate-notes
+          fi
