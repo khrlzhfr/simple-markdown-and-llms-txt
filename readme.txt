@@ -1,10 +1,10 @@
-=== Simple Markdown and llms.txt ===
+=== khrlzhfr Simple Markdown and llms.txt ===
 Contributors: khrlzhfr
 Tags: markdown, front matter, llms.txt, ai agents, content negotiation
 Requires at least: 5.7
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Serve any post or page as Markdown with YAML front matter, by adding .md to its 
 
 == Description ==
 
-Simple Markdown and llms.txt gives every public post, page and custom post type a Markdown version. There is nothing to set up.
+khrlzhfr Simple Markdown and llms.txt gives every public post, page and custom post type a Markdown version. There is nothing to set up.
 
 **Getting the Markdown**
 
@@ -94,7 +94,7 @@ Example: lower the minimum to 50 characters.
 
 == Installation ==
 
-1. Upload the `simple-markdown-and-llms-txt` folder to `/wp-content/plugins/`, or upload the zip under Plugins → Add New → Upload Plugin.
+1. Upload the `khrlzhfr-simple-markdown-and-llms-txt` folder to `/wp-content/plugins/`, or upload the zip under Plugins → Add New → Upload Plugin.
 2. Activate it. You don't need to flush permalinks.
 
 == Frequently Asked Questions ==
@@ -126,6 +126,10 @@ Changes made outside the dashboard don't rebuild it. Click Refresh llms.txt unde
 
 == Changelog ==
 
+= 2.1.0 =
+* Renamed to khrlzhfr Simple Markdown and llms.txt. The folder and text domain are now `khrlzhfr-simple-markdown-and-llms-txt`. To switch a site, install this version, then delete the old copy: settings and data are kept.
+* If two copies are installed, only one runs and the Plugins screen says which. Deleting a copy no longer removes data another installed copy still uses.
+
 = 2.0.0 =
 * Renamed from Dot MD to Simple Markdown and llms.txt. The folder, text domain, filters and functions now use the new name: `dotmd_…` filters are `simple_markdown_llms_…`, `dotmd_llms_txt` is `simple_markdown_llms_txt_enabled`, and `dotmd_get_url()` / `dotmd_has_markdown()` are `simple_markdown_llms_get_url()` / `simple_markdown_llms_has_markdown()`.
 * Updates now come from GitHub Releases (or WordPress.org, once approved).
@@ -154,6 +158,9 @@ Changes made outside the dashboard don't rebuild it. Click Refresh llms.txt unde
 * First release.
 
 == Upgrade Notice ==
+
+= 2.1.0 =
+New name and folder. Install this version first, then delete the old copy; your settings and data are kept.
 
 = 2.0.0 =
 Renamed from Dot MD. Delete Dot MD before activating, and rename any dotmd_ filters or functions in your own code.

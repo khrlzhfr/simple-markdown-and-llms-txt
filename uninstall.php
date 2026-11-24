@@ -8,6 +8,24 @@
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
 
+/** Whether another copy of this plugin (same main file, other folder) is still installed. */
+function simple_markdown_llms_other_copy_installed() {
+	if ( ! function_exists( 'get_plugins' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	}
+	foreach ( array_keys( get_plugins() ) as $file ) {
+		if ( basename( $file ) === basename( WP_UNINSTALL_PLUGIN ) && $file !== WP_UNINSTALL_PLUGIN ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+// Deleting one copy while another stays installed must not remove the data they share.
+if ( simple_markdown_llms_other_copy_installed() ) {
+	return;
+}
+
 /** Cleans up the current site. */
 function simple_markdown_llms_uninstall_site() {
 	delete_post_meta_by_key( '_simple_markdown_llms_text_length' );

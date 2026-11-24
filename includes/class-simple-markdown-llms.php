@@ -355,7 +355,7 @@ final class Simple_Markdown_LLMS {
 		status_header( 403 );
 		nocache_headers();
 		header( 'Content-Type: text/plain; charset=' . get_option( 'blog_charset' ) );
-		echo esc_html__( 'This content is password protected.', 'simple-markdown-and-llms-txt' );
+		echo esc_html__( 'This content is password protected.', 'khrlzhfr-simple-markdown-and-llms-txt' );
 		exit;
 	}
 
@@ -529,7 +529,7 @@ final class Simple_Markdown_LLMS {
 		if ( $post instanceof WP_Post && self::is_enabled_for( $post ) && ! post_password_required( $post ) ) {
 			printf(
 				'<link rel="alternate" type="text/markdown" title="%s" href="%s" />' . "\n",
-				esc_attr__( 'Markdown', 'simple-markdown-and-llms-txt' ),
+				esc_attr__( 'Markdown', 'khrlzhfr-simple-markdown-and-llms-txt' ),
 				esc_url( simple_markdown_llms_get_url( $post ) )
 			);
 		}

@@ -13,6 +13,6 @@ require_once dirname( __DIR__ ) . '/lib/plugin-update-checker/plugin-update-chec
 $simple_markdown_llms_updates = YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
 	'https://github.com/khrlzhfr/simple-markdown-and-llms-txt/',
 	SIMPLE_MARKDOWN_LLMS_FILE,
-	'simple-markdown-and-llms-txt'
+	dirname( plugin_basename( SIMPLE_MARKDOWN_LLMS_FILE ) ) // Keep updates in whichever folder this copy was installed in.
 );
 $simple_markdown_llms_updates->getVcsApi()->enableReleaseAssets( '/simple-markdown-and-llms-txt\.zip$/' );

@@ -1,6 +1,6 @@
-# Simple Markdown and llms.txt
+# khrlzhfr Simple Markdown and llms.txt
 
-By [Khairil Zhafri](https://khrlzh.fr). Version 2.0.0. Requires WordPress 5.7+ and PHP 7.4+. Folder, main file and text domain: `simple-markdown-and-llms-txt`. Formerly **Dot MD**.
+By [Khairil Zhafri](https://khrlzh.fr). Version 2.1.0. Requires WordPress 5.7+ and PHP 7.4+. Folder and text domain: `khrlzhfr-simple-markdown-and-llms-txt`; main file `simple-markdown-and-llms-txt.php`. Formerly **Dot MD**.
 
 Serve any post or page as Markdown with YAML front matter, and publish `/llms.txt`. There is nothing to set up.
 
@@ -14,7 +14,7 @@ Filters, template functions and output examples are in [readme.txt](readme.txt).
 
 ## Installing
 
-**From GitHub (gets updates straight away):** download `simple-markdown-and-llms-txt.zip` from the [latest release](https://github.com/khrlzhfr/simple-markdown-and-llms-txt/releases/latest), then upload it under Plugins → Add New → Upload Plugin. New versions appear under Dashboard → Updates as soon as they are released on GitHub; select **Enable auto-updates** next to the plugin to install them automatically.
+**From GitHub (gets updates straight away):** download `khrlzhfr-simple-markdown-and-llms-txt.zip` from the [latest release](https://github.com/khrlzhfr/simple-markdown-and-llms-txt/releases/latest), then upload it under Plugins → Add New → Upload Plugin. New versions appear under Dashboard → Updates as soon as they are released on GitHub; select **Enable auto-updates** next to the plugin to install them automatically.
 
 **From WordPress.org:** once approved in the Plugin Directory, install **Simple Markdown and llms.txt** from Plugins → Add New. Updates arrive through WordPress.org.
 
@@ -26,7 +26,7 @@ Both are the same plugin. The GitHub copy also contains an updater (`includes/gi
 
 1. Bump `Version:` and `SIMPLE_MARKDOWN_LLMS_VERSION` in `simple-markdown-and-llms-txt.php`, `Stable tag:` in `readme.txt`, and add a changelog entry to both readmes.
 2. Commit, then publish a release with a matching tag (for example `v2.0.1`) on GitHub's Releases page, or push the tag.
-3. The Release workflow checks the version and attaches `simple-markdown-and-llms-txt.zip`. Sites installed from GitHub see the update straight away.
+3. The Release workflow checks the version and attaches `khrlzhfr-simple-markdown-and-llms-txt.zip`. Sites installed from GitHub see the update straight away.
 4. Once the plugin is approved on WordPress.org, copy the same version to its SVN repository, leaving out the files in `.distignore`.
 
 ## Server setup
@@ -36,6 +36,8 @@ Both are the same plugin. The GitHub copy also contains an updater (`includes/gi
 Deleting the plugin removes its stored text lengths and cached llms.txt from every site.
 
 ## Changelog
+
+**2.1.0** — Renamed to khrlzhfr Simple Markdown and llms.txt. The folder and text domain are now `khrlzhfr-simple-markdown-and-llms-txt`. To switch a site, install this version, then delete the old copy: settings and data are kept; If two copies are installed, only one runs and the Plugins screen says which. Deleting a copy no longer removes data another installed copy still uses.
 
 **2.0.0** — Renamed from Dot MD; filters and functions use the `simple_markdown_llms_` prefix; GitHub updates; multisite uninstall. Earlier versions are listed in readme.txt.
 
